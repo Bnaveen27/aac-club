@@ -9,8 +9,7 @@ app.use(cors())
 const uri = process.env.MONGO_URI || 'mongodb+srv://naveen:81100@cluster0.3ujvv.mongodb.net/aac?retryWrites=true&w=majority&appName=Cluster0';
 
 mongoose.connect(uri,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+
     tlsInsecure: true
 });
  
