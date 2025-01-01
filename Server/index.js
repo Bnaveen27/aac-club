@@ -32,7 +32,7 @@ app.post('/Pages/Registration/Signup',async(req,res)=>{
     .catch(err => res.json(err))
 })
 
-app.listen(3001,() =>{
+app.listen(5000,() =>{
     console.log('server is connected')
     console.log('Database Connected')
 })
