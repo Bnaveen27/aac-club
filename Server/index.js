@@ -6,7 +6,14 @@ const app=express()
 app.use(express.json())
 app.use(cors())
 
-mongoose.connect("mongodb+srv://naveen:81100@cluster0.3ujvv.mongodb.net/aac?retryWrites=true&w=majority&appName=Cluster0");
+const uri = process.env.MONGO_URI || 'mongodb+srv://naveen:81100@cluster0.3ujvv.mongodb.net/aac?retryWrites=true&w=majority&appName=Cluster0';
+
+mongoose.connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+
+//mongoose.connect("mongodb+srv://naveen:81100@cluster0.3ujvv.mongodb.net/aac?retryWrites=true&w=majority&appName=Cluster0");
 
 app.post('/Pages/Login/Login',async(req,res) => {
 
