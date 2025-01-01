@@ -1,0 +1,36 @@
+nav{
+    background-color:#3ba3bd5c;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+.logo{
+    display: flex;
+    align-items: center;
+}
+.menu-list .menu-bar{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    --tw-text-opacity: 1;
+    color: rgb(75 85 99 );
+}
+.menu-bar link{
+    display: inline-block;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    color: inherit;
+    text-decoration: inherit;
+    font-weight: bolder;
+}
+link:hover{
+    color:#ff8901;
+}
+
+
