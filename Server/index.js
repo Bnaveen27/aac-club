@@ -6,7 +6,7 @@ const app=express()
 app.use(express.json())
 app.use(cors())
 
-const uri = process.env.MONGO_URI || 'mongodb+srv://naveen:81100@cluster0.3ujvv.mongodb:27017/aac?retryWrites=true&w=majority&appName=Cluster0';
+const uri = process.env.MONGO_URI || 'mongodb+srv://naveen:81100@cluster0.3ujvv.mongodb.net:27017/aac?retryWrites=true&w=majority&appName=Cluster0';
 
 mongoose.connect(uri);
  
