@@ -11,15 +11,16 @@ app.use(cors(), {
     credentials:true
 })
 
-export default async (req, res) => {
+export default async function handler(req, res) {
     try {
-      // Your logic here
+      // Your logic
       res.status(200).json({ success: true });
-    } catch (error) {
-      console.error("Function Error:", error);
+    } catch (err) {
+      console.error("Error occurred:", err);
       res.status(500).json({ error: "Internal Server Error" });
     }
-  };
+  }
+  
 
 const uri = process.env.MONGO_URI || 'mongodb+srv://naveen:81100@cluster0.3ujvv.mongodb.net/aac?retryWrites=true&w=majority&appName=Cluster0';
 
