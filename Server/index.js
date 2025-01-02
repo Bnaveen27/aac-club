@@ -4,7 +4,12 @@ const cors =require('cors')
 const InnovatorsModel = require('./model/Innovators')
 const app=express()
 app.use(express.json())
-app.use(cors())
+app.use(cors(), {
+
+    origin:["https://aac-club.vercel.app"],
+    methods:["POST","GET"],
+    credentials:true
+})
 
 const uri = process.env.MONGO_URI || 'mongodb+srv://naveen:81100@cluster0.3ujvv.mongodb.net/aac?retryWrites=true&w=majority&appName=Cluster0';
 
@@ -14,6 +19,10 @@ mongoose.connect(uri,{
 });
  
 //mongoose.connect("mongodb+srv://naveen:81100@cluster0.3ujvv.mongodb.net/aac?retryWrites=true&w=majority&appName=Cluster0");
+
+app.get("/",(req,res) =>{
+    res.json("hello");
+})
 
 app.post('/Pages/Login/Login',async(req,res) => {
 
