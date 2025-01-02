@@ -11,6 +11,16 @@ app.use(cors(), {
     credentials:true
 })
 
+export default async (req, res) => {
+    try {
+      // Your logic here
+      res.status(200).json({ success: true });
+    } catch (error) {
+      console.error("Function Error:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  };
+
 const uri = process.env.MONGO_URI || 'mongodb+srv://naveen:81100@cluster0.3ujvv.mongodb.net/aac?retryWrites=true&w=majority&appName=Cluster0';
 
 mongoose.connect(uri,{
