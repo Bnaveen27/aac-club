@@ -1,39 +1,13 @@
 const express=require('express');
 const mongoose = require('mongoose');
 const cors =require('cors')
-const InnovatorsModel = require('./model/Innovators')
+const InnovatorsModel = require('./models/Innovators')
 const app=express()
 app.use(express.json())
-app.use(cors(), {
+app.use(cors())
 
-    origin:["https://aac-club.vercel.app/"],
-    methods:["POST","GET"],
-    credentials:true
-})
-
-export default async function handler(req, res) {
-    try {
-      // Your logic
-      res.status(200).json({ success: true });
-    } catch (err) {
-      console.error("Error occurred:", err);
-      res.status(500).json({ error: "Internal Server Error" });
-    }
-  }
-  
-
-const uri = process.env.MONGO_URI || 'mongodb+srv://naveen:81100@cluster0.3ujvv.mongodb.net/aac?retryWrites=true&w=majority&appName=Cluster0';
-
-mongoose.connect(uri,{
-    ssl: true ,
-    tlsInsecure: true
-});
- 
-//mongoose.connect("mongodb+srv://naveen:81100@cluster0.3ujvv.mongodb.net/aac?retryWrites=true&w=majority&appName=Cluster0");
-
-app.get("/",(req,res) =>{
-    res.json("hello");
-})
+mongoose.connect("mongodb://127.0.0.1:27017/aac");
+//mongodb+srv:naveen:81100@cluster0.3ujvv.mongodb.net/aac?retryWrites=true&w=majority&appName=Cluster0
 
 app.post('/Pages/Login/Login',async(req,res) => {
 
@@ -59,7 +33,7 @@ app.post('/Pages/Registration/Signup',async(req,res)=>{
     .catch(err => res.json(err))
 })
 
-app.listen(3001,() =>{
+app.listen(5000,() =>{
     console.log('server is connected')
     console.log('Database Connected')
 })
